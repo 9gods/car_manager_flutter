@@ -1,6 +1,6 @@
 # Garage Manager Flutter App
 
-This project is a simple example I created to study [Flutter](https://flutter.dev/). [It consumes a CRUD (Create, Read, Update, Delete) API made by me](https://github.com/9gods/garage-crud-dart), for managing cars. Using Clean Architecture, it demonstrates best practices for developing Flutter apps.
+This project is a simple example I created to study [Flutter](https://flutter.dev/). [It consumes a CRUD (Create, Read, Update, Delete) API made by me](https://github.com/9gods/garage-manager-crud-dart), for managing cars. Using Clean Architecture, it demonstrates best practices for developing Flutter apps.
 
 ---
 

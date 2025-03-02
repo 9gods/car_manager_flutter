@@ -4,8 +4,8 @@ import 'package:garage_manager_flutter/presentation/widgets/colors/app_colors.da
 import 'package:garage_manager_flutter/presentation/widgets/primitives/dropdown_menu_button_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DropdownMenu extends StatelessWidget {
-  const DropdownMenu({Key? key}) : super(key: key);
+class CustomDropdownMenu extends StatelessWidget {
+  const CustomDropdownMenu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -8,6 +8,8 @@ environment:
 
 dependencies:
   http:
+  flutter_lucide:
+  url_launcher:
   flutter:
     sdk: flutter
 

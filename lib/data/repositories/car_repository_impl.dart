@@ -76,7 +76,7 @@ class CarRepositoryImpl implements CarRepository {
           .toList();
     } else if (response.body == 'INVALID_BRAND') {
       return [];
-    } else if (response.body == 'CAR_NOT_FOUND') {
+    } else if (response.body == 'CARS_NOT_FOUND') {
       return [];
     } else {
       throw Exception(
@@ -86,7 +86,35 @@ class CarRepositoryImpl implements CarRepository {
   }
 
   @override
-  Future<List<Car>> getCarsByYear(String yearStr) async {}
+  Future<List<Car>> getCarsByYear(String yearStr) async {
+    final response = await http.get(Uri.parse('$baseUrl/cars/$yearStr'));
+    if (response.statusCode == 200) {
+      List data = json.decode(response.body);
+      return data
+          .map(
+            (json) => Car(
+              id: json['id'],
+              model: json['model'],
+              brand: json['brand'],
+              year: json['year'],
+              engine: json['engine'],
+              engineCode: json['engineCode'],
+              horsepower: json['horsepower'],
+              price: json['price'],
+              weight: json['weight'],
+            ),
+          )
+          .toList();
+    } else if (response.body == 'INVALID_YEAR') {
+      return [];
+    } else if (response.body == 'CARS_NOT_FOUND') {
+      return [];
+    } else {
+      throw Exception(
+        'Failed to fetch cars by year: ${response.statusCode} - ${response.body}',
+      );
+    }
+  }
 
   @override
   Future<void> createCar(
@@ -99,12 +127,48 @@ class CarRepositoryImpl implements CarRepository {
     int price,
     int weight,
   ) async {
-    final response = await http.post(Uri.parse('$baseUrl/cars'));
+    final url = Uri.parse('$baseUrl/cars');
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode({
+        'brand': brand,
+        'model': model,
+        'engine': engine,
+        'engineCode': engineCode,
+        'year': year,
+        'horsepower': horsepower,
+        'price': price,
+        'weight': weight,
+      }),
+    );
+    if (response.statusCode == 201) {
+      final result = json.decode(response.body);
+      return result;
+    } else {
+      throw Exception(
+        'Failed to create car: ${response.statusCode} - ${response.body}',
+      );
+    }
   }
 
   @override
   Future<void> deleteCar(String idStr) async {
-    // TODO: implement deleteCar
+    final response = await http.delete(Uri.parse('$baseUrl/cars/$idStr'));
+    if (response.statusCode == 200) {
+      final result = json.decode(response.body);
+      return result;
+    } else if (response.body == 'INVALID_ID') {
+      final result = json.decode(response.body);
+      return result;
+    } else if (response.body == 'CAR_NOT_FOUND') {
+      final result = json.decode(response.body);
+      return result;
+    } else {
+      throw Exception(
+        'Failed to delete car: ${response.statusCode} - ${response.body}',
+      );
+    }
   }
 
   @override

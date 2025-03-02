@@ -5,8 +5,7 @@ class GetCarsByYear {
   final CarRepository repository;
   GetCarsByYear(this.repository);
 
-  Future<List<Car>> call(int year) async {
-    String yearStr = year.toString();
+  Future<List<Car>> call(String yearStr) async {
     try {
       return await repository.getCarsByYear(yearStr);
     } catch (e) {

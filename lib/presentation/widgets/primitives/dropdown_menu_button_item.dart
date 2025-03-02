@@ -16,14 +16,14 @@ class DropdownMenuButtonItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(4), // Padding externo de 4px
       child: TextButton.icon(
         style: TextButton.styleFrom(backgroundColor: Colors.transparent),
         onPressed: onPressed,
-        icon: Icon(icon),
+        icon: Icon(icon, color: AppColors.slate300),
         label: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: AppColors.slate300,
             fontWeight: FontWeight.w600,
           ),

@@ -153,6 +153,39 @@ class CarRepositoryImpl implements CarRepository {
   }
 
   @override
+  Future<void> updateCar(Car car) async {
+    final url = Uri.parse('$baseUrl/cars/${car.id}');
+    final response = await http.put(
+      url,
+      body: json.encode({
+        'brand': car.brand,
+        'model': car.model,
+        'engine': car.engine,
+        'engineCode': car.engineCode,
+        'year': car.year,
+        'horsepower': car.horsepower,
+        'price': car.price,
+        'weight': car.weight,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final result = json.decode(response.body);
+      return result;
+    } else if (response.body == 'INVALID_ID') {
+      final result = json.decode(response.body);
+      return result;
+    } else if (response.body == 'CAR_NOT_FOUND') {
+      final result = json.decode(response.body);
+      return result;
+    } else {
+      throw Exception(
+        'Failed to update car: ${response.statusCode} - ${response.body}',
+      );
+    }
+  }
+
+  @override
   Future<void> deleteCar(String idStr) async {
     final response = await http.delete(Uri.parse('$baseUrl/cars/$idStr'));
     if (response.statusCode == 200) {
@@ -169,10 +202,5 @@ class CarRepositoryImpl implements CarRepository {
         'Failed to delete car: ${response.statusCode} - ${response.body}',
       );
     }
-  }
-
-  @override
-  Future<void> updateCar(Car car) async {
-    // TODO: implement updateCar
   }
 }

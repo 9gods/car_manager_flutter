@@ -6,8 +6,9 @@ class GetCarById {
   GetCarById(this.repository);
 
   Future<Car> call(int id) async {
+    String idStr = id.toString();
     try {
-      return await repository.getCar(id.toString());
+      return await repository.getCar(idStr);
     } catch (e) {
       throw e; // Rethrow the error for further handling
     }

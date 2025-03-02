@@ -7,6 +7,7 @@ environment:
   sdk: ^3.7.0
 
 dependencies:
+  google_fonts:
   http:
   flutter_lucide:
   url_launcher:
@@ -19,4 +20,6 @@ dev_dependencies:
   flutter_lints: ^5.0.0
 
 flutter:
+  assets:
+    - assets/
   uses-material-design: true

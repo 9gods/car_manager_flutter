@@ -8,6 +8,7 @@ class NoDataFound extends StatelessWidget {
   const NoDataFound({required Key? key, required this.description})
     : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return CustomCard(
       child: Center(

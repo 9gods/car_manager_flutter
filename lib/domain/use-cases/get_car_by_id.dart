@@ -5,8 +5,7 @@ class GetCarById {
   final CarRepository repository;
   GetCarById(this.repository);
 
-  Future<Car> call(int id) async {
-    String idStr = id.toString();
+  Future<Car> call(String idStr) async {
     try {
       return await repository.getCar(idStr);
     } catch (e) {

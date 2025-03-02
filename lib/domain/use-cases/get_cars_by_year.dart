@@ -1,5 +1,5 @@
-import 'package:car_manager_flutter/domain/entities/car.dart';
-import 'package:car_manager_flutter/domain/repositories/car_repository.dart';
+import 'package:garage_manager_flutter/domain/entities/car.dart';
+import 'package:garage_manager_flutter/domain/repositories/car_repository.dart';
 
 class GetCarsByYear {
   final CarRepository repository;

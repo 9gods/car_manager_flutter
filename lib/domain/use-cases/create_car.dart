@@ -1,4 +1,4 @@
-import 'package:car_manager_flutter/domain/repositories/car_repository.dart';
+import 'package:garage_manager_flutter/domain/repositories/car_repository.dart';
 
 class CreateCar {
   final CarRepository repository;

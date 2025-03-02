@@ -5,7 +5,16 @@ abstract class CarRepository {
   Future<List<Car>> getCarsByBrand(String idStr);
   Future<List<Car>> getCarsByYear(String yearStr);
   Future<Car> getCar(String idStr);
-  Future<void> createCar(Car car);
+  Future<void> createCar(
+    String brand,
+    String model,
+    String engine,
+    String engineCode,
+    int year,
+    int horsepower,
+    int price,
+    int weight,
+  );
   Future<void> updateCar(Car car);
   Future<void> deleteCar(String idStr);
 }

@@ -4,8 +4,7 @@ class DeleteCar {
   final CarRepository repository;
   DeleteCar(this.repository);
 
-  Future<void> call(int id) async {
-    String idStr = id.toString();
+  Future<void> call(String idStr) async {
     return await repository.deleteCar(idStr);
   }
 }

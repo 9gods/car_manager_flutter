@@ -25,22 +25,15 @@ class FloatingAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(16, 48, 16, 0),
-        decoration: BoxDecoration(
-          color: AppColors.slate900,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 8,
-              offset: Offset(0, 4),
-            ),
-          ],
-        ),
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+      decoration: BoxDecoration(
+        color: AppColors.slate900,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.fromLTRB(0, 0, 12, 0),
           child: AppBar(
             automaticallyImplyLeading: false,
             backgroundColor: Colors.transparent,

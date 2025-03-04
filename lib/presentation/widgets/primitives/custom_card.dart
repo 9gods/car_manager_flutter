@@ -3,7 +3,7 @@ import 'package:garage_manager_flutter/presentation/widgets/colors/app_colors.da
 
 class CustomCard extends StatelessWidget {
   final Widget child;
-  final AppColors? backgroundGradient;
+  final LinearGradient? backgroundGradient;
   final double? height;
   final double? width;
   final Axis orientation;
@@ -24,6 +24,7 @@ class CustomCard extends StatelessWidget {
       width: width,
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
+        gradient: backgroundGradient,
         color:
             backgroundGradient == null
                 ? Colors.transparent

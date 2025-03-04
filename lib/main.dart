@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         '/about': (context) => const AboutThisAppPage(),
         '/car-detail': (context) => const CarDetailPage(),
         '/car-form': (context) => const CarFormPage(),
-        '/cars-display': (context) => const CarsDisplayPage(),
+        '/cars-display': (context) => CarsDisplayPage(),
       },
     );
   }

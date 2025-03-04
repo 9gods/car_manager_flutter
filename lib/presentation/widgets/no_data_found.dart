@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:garage_manager_flutter/presentation/widgets/colors/app_colors.dart';
-import 'package:garage_manager_flutter/presentation/widgets/primitives/general_card.dart';
+import 'package:garage_manager_flutter/presentation/widgets/primitives/custom_card.dart';
 
 class NoDataFound extends StatelessWidget {
   final String description;
-  const NoDataFound({required Key? key, required this.description})
-    : super(key: key);
+  const NoDataFound({Key? key, required this.description}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      child: Center(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          spacing: 24,
           children: [
-            Icon(LucideIcons.circle_help, size: 20, color: Colors.red.shade400),
+            Icon(LucideIcons.circle_help, size: 50, color: Colors.red.shade400),
             Text(
               description,
               style: TextStyle(

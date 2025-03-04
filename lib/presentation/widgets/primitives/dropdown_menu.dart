@@ -9,44 +9,48 @@ class CustomDropdownMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: AppColors.slate800,
-        border: Border.all(color: AppColors.slate700),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          DropdownMenuButtonItem(
-            icon: LucideIcons.info,
-            text: 'About this app',
-            onPressed: () {
-              Navigator.pushNamed(context, '/about');
-            },
-          ),
-          DropdownMenuButtonItem(
-            icon: LucideIcons.external_link,
-            text: 'About Flutter',
-            onPressed: () async {
-              final url = Uri.parse('https://flutter.dev/');
-              if (await canLaunchUrl(url)) {
-                await launchUrl(url);
-              }
-            },
-          ),
-          DropdownMenuButtonItem(
-            icon: LucideIcons.external_link,
-            text: 'About Dart',
-            onPressed: () async {
-              final url = Uri.parse('https://dart.dev/');
-              if (await canLaunchUrl(url)) {
-                await launchUrl(url);
-              }
-            },
-          ),
-        ],
+    return SafeArea(
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: AppColors.slate800,
+          border: Border.all(color: AppColors.slate700),
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(width: double.infinity),
+            DropdownMenuButtonItem(
+              icon: LucideIcons.info,
+              text: 'About this app',
+              onPressed: () {
+                Navigator.pushNamed(context, '/about');
+              },
+            ),
+            DropdownMenuButtonItem(
+              icon: LucideIcons.external_link,
+              text: 'About Flutter',
+              onPressed: () async {
+                final url = Uri.parse('https://flutter.dev/');
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
+                }
+              },
+            ),
+            DropdownMenuButtonItem(
+              icon: LucideIcons.external_link,
+              text: 'About Dart',
+              onPressed: () async {
+                final url = Uri.parse('https://dart.dev/');
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
